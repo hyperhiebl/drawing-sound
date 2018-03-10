@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-cssmin');
   	grunt.loadNpmTasks('grunt-contrib-uglify');
   	grunt.loadNpmTasks('grunt-contrib-watch');
+  	grunt.loadNpmTasks('grunt-contrib-concat');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -50,23 +51,50 @@ module.exports = function(grunt) {
 		  }
 		},
 
-		uglify: { // Begin JS Uglify Plugin
-		  build: {
-		    src: ['js/*.js'],
-		    dest: 'script.min.js'
-		  }
-		},
+		// concatenate js and css
+        concat: {
+            js: {
+                src: ['js/libs/*.js', 'js/libs/addons/*.js', 'js/*.js'],
+                dest: 'main.js'
+            },
+        },
+
+
+        // minify js file
+        uglify: {
+            js: {
+                files: {
+                    'main.min.js': ['main.js']
+                },
+                options: {
+                    preserveComments: false
+                }
+            }
+        },
+
 
 		watch: { // Compile everything into one task with Watch Plugin
-	      css: {
-	        files: '**/*.scss',
-	        cwd: 'scss',
-	        tasks: ['sass', 'postcss', 'cssmin']
-	      },
-	      js: {
-	        files: 'js/*.js',
-	        tasks: ['uglify']
-	      }
+	      // css: {
+	      //   files: '**/*.scss',
+	      //   cwd: 'scss',
+	      //   tasks: ['sass', 'postcss', 'cssmin']
+	      // },
+	      // js: {
+	      // 	cwd: 'js',
+	      //   files: '**/*.js',
+	      //   tasks: []
+	      // }
+
+	      	changesass: {
+                // options: { livereload: true },
+                files: ['scss/*.scss'],
+                tasks: ['sass', 'postcss', 'cssmin'],
+            },
+	        // changejs: {
+	        //     // options: { livereload: true },
+	        //     files: ['<%= dirs.dev_theme %>assets/js/**/*', '!<%= dirs.dev_theme %>assets/js/main.js'],
+	        //     tasks: ['concat', 'uglify'],
+	        // },
 	    },
 
 	    // gitadd: {
