@@ -17,6 +17,13 @@
   },
   "homepage": "https://github.com/hyperhiebl/drawing-sound#readme",
   "devDependencies": {
-    "tachyons": "^4.9.1"
+    "tachyons": "^4.9.1",
+    "grunt": "^1.0.2",
+    "grunt-contrib-cssmin": "latest",
+    "autoprefixer": "*",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-postcss": "latest"
   }
 }

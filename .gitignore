@@ -1,1 +1,5 @@
 node_modules/
+drawing-sound.sublime-project
+drawing-sound.sublime-workspace
+package-lock.json
+.sass-cache
