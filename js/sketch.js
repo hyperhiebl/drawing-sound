@@ -11,11 +11,11 @@ function setup() {
 
 
 	// A triangle oscillator
-	osc = new p5.TriOsc();
+	osc = new p5.Noise();
 	// Start silent
 	osc.start();
-	osc.amp(0);
-	osc.fade(0.5,0.2);
+	osc.amp(0.5);
+	// osc.fade(0.5,0.2);
 }
 
 function draw() {
