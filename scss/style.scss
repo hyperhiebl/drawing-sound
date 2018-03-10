@@ -1,5 +1,8 @@
+$feature-color: rgb(255, 196, 0);
+
+
 body{
 	margin: 0;
 	padding: 0;
-	background: red;
+	background: $feature-color;
 }
