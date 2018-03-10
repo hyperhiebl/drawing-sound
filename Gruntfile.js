@@ -75,7 +75,11 @@ module.exports = function(grunt) {
 
 		watch: { // Compile everything into one task with Watch Plugin
 	      	changesass: {
-                // options: { livereload: true },
+                options: { 
+                	livereload: {
+        				host: 'localhost'
+        			}
+        		},
                 files: ['scss/*.scss'],
                 tasks: ['sass'],
                 // tasks: ['sass', 'postcss', 'cssmin'],

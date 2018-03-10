@@ -1,4 +1,5 @@
 var c1 = 0;
+var osc;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -7,6 +8,14 @@ function setup() {
 	strokeWeight(10)
 	frameRate(30);
 	background(255);
+
+
+	// A triangle oscillator
+	osc = new p5.TriOsc();
+	// Start silent
+	osc.start();
+	osc.amp(0);
+	osc.fade(0.5,0.2);
 }
 
 function draw() {
